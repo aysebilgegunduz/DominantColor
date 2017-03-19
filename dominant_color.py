@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans
 def find_histogram(clt):
     """
     create a histogram with k clusters
-    :param clt:
+    :param: clt
     :return:hist
     """
     numLabels = np.arange(0, len(np.unique(clt.labels_)) + 1)
@@ -16,6 +16,7 @@ def find_histogram(clt):
     hist /= hist.sum()
 
     return hist
+
 def plot_colors(hist, cent):
     start = 0
     end = 0
@@ -41,15 +42,11 @@ def plot_colors(hist, cent):
 
     return myRect
 
-
+"""
 def plot_colors2(hist, centroids):
-    # initialize the bar chart representing the relative frequency
-    # of each of the colors
     bar = np.zeros((50, 300, 3), dtype="uint8")
     startX = 0
 
-    # loop over the percentage of each cluster and the color of
-    # each cluster
     for (percent, color) in zip(hist, centroids):
         # plot the relative percentage of each cluster
         endX = startX + (percent * 300)
@@ -59,16 +56,12 @@ def plot_colors2(hist, centroids):
 
     # return the bar chart
     return bar
-
-img = cv2.imread("pic/img2.jpeg")
+"""
+img = cv2.imread("pic/img11.jpeg")
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-plt.figure()
-plt.axis("off")
-plt.imshow(img)
-
 img = img.reshape((img.shape[0] * img.shape[1],3)) #represent as row*column,channel number
-clt = KMeans(n_clusters=8)
+clt = KMeans(n_clusters=32) #cluster number
 clt.fit(img)
 
 hist = find_histogram(clt)
