@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
+
 def find_histogram(clt):
     """
     create a histogram with k clusters
@@ -61,7 +62,7 @@ img = cv2.imread("pic/img11.jpeg")
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 img = img.reshape((img.shape[0] * img.shape[1],3)) #represent as row*column,channel number
-clt = KMeans(n_clusters=32) #cluster number
+clt = KMeans(n_clusters=3) #cluster number
 clt.fit(img)
 
 hist = find_histogram(clt)
