@@ -17,7 +17,7 @@ def find_histogram(clt):
     hist /= hist.sum()
 
     return hist
-
+"""
 def plot_colors(hist, cent):
     start = 0
     end = 0
@@ -57,8 +57,8 @@ def plot_colors2(hist, centroids):
 
     # return the bar chart
     return bar
-"""
-img = cv2.imread("pic/img11.jpeg")
+
+img = cv2.imread("pic/img7.jpeg")
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 img = img.reshape((img.shape[0] * img.shape[1],3)) #represent as row*column,channel number
@@ -66,7 +66,7 @@ clt = KMeans(n_clusters=3) #cluster number
 clt.fit(img)
 
 hist = find_histogram(clt)
-bar = plot_colors(hist, clt.cluster_centers_)
+bar = plot_colors2(hist, clt.cluster_centers_)
 
 plt.axis("off")
 plt.imshow(bar)

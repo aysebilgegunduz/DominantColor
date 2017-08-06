@@ -124,6 +124,7 @@ km = KMeansClustering()
 km.initialise_img_from_img(img, k)
 clt,centers = km.k_means()
 #total number of points
+
 count = sum(len(v) for v in clt.values())
 #find labels for histogram
 clt_labels = np.zeros(count, dtype=np.int)
